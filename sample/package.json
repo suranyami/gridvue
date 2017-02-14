@@ -1,0 +1,104 @@
+{
+  "name": "@davesag/tahkn",
+  "version": "0.0.1",
+  "description": "A two player card / board game involving tanks",
+  "engines": {
+    "node": ">=6.9.5",
+    "npm": "^4"
+  },
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "start": "webpack-dev-server",
+    "build": "webpack -p --progress --config ./webpack.production.config.js",
+    "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js \"test/**/*@(.js|.jsx)\"",
+    "test:watch": "npm run test -- --watch",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davesag/Tahkn.git"
+  },
+  "keywords": [
+    "Redux",
+    "React",
+    "Tank",
+    "Tanks",
+    "game",
+    "multiplayer"
+  ],
+  "author": "Dave Sag <davesag@gmail.com>",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/davesag/Tahkn/issues"
+  },
+  "homepage": "https://github.com/davesag/Tahkn#readme",
+  "devDependencies": {
+    "babel-core": "^6.18",
+    "babel-loader": "^6.2.9",
+    "babel-plugin-system-import-transformer": "^2.4.0",
+    "babel-plugin-transform-object-rest-spread": "^6.22.0",
+    "babel-preset-env": "^1.1.8",
+    "babel-preset-react": "^6.5.0",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0",
+    "chai-datetime": "^1.4.1",
+    "clean-webpack-plugin": "^0.1.13",
+    "css-loader": "^0.26.1",
+    "eslint": "^3.15.0",
+    "extract-text-webpack-plugin": "^2.0.0-rc.2",
+    "faker": "^3.1.0",
+    "file-loader": "^0.10",
+    "jsdom": "^9.8.3",
+    "mocha": "^3.0",
+    "node-sass": "^4.1.1",
+    "postcss-loader": "^1.2",
+    "proxyquire": "^1.7.10",
+    "react-addons-test-utils": "^15.0.1",
+    "react-hot-loader": "^3.0.0-beta.6",
+    "sass-loader": "^5.0.1",
+    "sinon": "^1.17.4",
+    "sinon-chai": "^2.8.0",
+    "sinon-stub-promise": "^4",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.3.0",
+    "yaml-loader": "^0.4.0"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "browsers": [
+              "last 2 versions",
+              "safari >= 10"
+            ]
+          }
+        }
+      ],
+      "react"
+    ],
+    "plugins": [
+      "react-hot-loader/babel",
+      "transform-object-rest-spread"
+    ]
+  },
+  "dependencies": {
+    "pluralize": "^3.0.0",
+    "react": "^15.0.1",
+    "react-bootstrap": "^0.30.6",
+    "react-dom": "^15.0.1",
+    "react-hexgrid": "file:../../3rd_Party/forks/react-hexgrid",
+    "react-images": "^0.5.2",
+    "react-redux": "^5.0.1",
+    "react-router": "^3.0.0",
+    "react-router-bootstrap": "^0.23.1",
+    "react-router-redux": "^4.0.7",
+    "redux": "^3.5.2",
+    "redux-thunk": "^2.1.0",
+    "slugify": "^1.0.2"
+  }
+}

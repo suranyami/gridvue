@@ -1,0 +1,28 @@
+{
+  "name": "webpack-rails-example",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "index.js",
+  "dependencies": {
+    "node-sass": "^3.8.0",
+    "sass-loader": "^4.0.0",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^1.16.2"
+  },
+
+  "scripts": {
+    "build": "GIT_SHA=`git rev-parse HEAD` webpack --optimize-minimize --colors --output-path dist/",
+    "release": "NODE_ENV=production GIT_SHA=`git rev-parse HEAD` webpack --optimize-minimize --colors --output-path dist/",
+    "eslint": "eslint build",
+    "start": "webpack-dev-server --host 0.0.0.0 --content-base build",
+    "test": "karma start spec/karma.conf.js",
+    "test-dev": "karma start spec/karma.conf.dev.js",
+    "s": "webpack-dev-server --host 0.0.0.0 --content-base build --watch-poll"
+  },
+
+  "devDependencies": {
+    "vue-hot-loader": "0.0.3",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^1.16.3"
+  }
+}

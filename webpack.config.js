@@ -7,15 +7,25 @@ module.exports = {
   context: __dirname + "/app/assets/javascripts",
 
   entry: {
-    application: "./application.js",
+    application: ["./javascripts/application.js", "./stylesheets/application.css"]
   },
 
   output: {
     path: __dirname + "/public",
-    filename: "javascripts/[name].js",
+    filename: "javascripts/[name]-[hash].js",
   },
 
   module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: "css-loader"
+        })
+      }
+    ],
+
     loaders: [
       {
         test: /\.js$/,
@@ -24,18 +34,12 @@ module.exports = {
         query: {
           presets: ['es2015']
         },
-
-        {
-          test: /\.css$/,
-          loader: ExtractTextPlugin.extract("css!sass")
-        }
-
       },
     ]
   },
 
   plugins: [
-    new ExtractTextPlugin("stylesheets/[name].css"),
+    new ExtractTextPlugin("stylesheets/[name]-[hash].css"),
   ],
 
 };

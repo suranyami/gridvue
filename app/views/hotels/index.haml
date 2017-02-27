@@ -1,3 +1,12 @@
 %h1 Hotels
 
-%table
+%table.table.table-hover
+  %thead
+    %tr
+      %th Name
+      %th.right Number of Rooms
+  %tbody
+    - @hotels.each do |hotel|
+      %tr
+        %td= link_to(hotel.name, hotel)
+        %td.right= num_rooms(hotel)

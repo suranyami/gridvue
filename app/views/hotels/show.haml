@@ -1,0 +1,12 @@
+%h1= @hotel.name
+
+%p= @hotel.description
+
+- @hotel.rooms.limit(10).each do |room|
+  .panel.panel-default.panel-primary
+    .panel-heading= room.name
+    .panel-body
+      %h3= room.room_type.name
+    .panel-footer
+      $
+      =room.room_type.room_rates.first.price

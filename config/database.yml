@@ -3,15 +3,12 @@ default: &default
   host:     localhost
   encoding: unicode
   pool:     25
-  timeout: 5000
+  timeout:  5000
 
 development:
   <<: *default
   database: gridvue_development
 
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
 test:
   <<: *default
   database: gridvue_test

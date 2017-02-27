@@ -11,6 +11,7 @@ gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
+gem 'twitter-bootstrap-rails'
 
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
@@ -30,8 +31,8 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'guard-rails'
   gem 'guard-bundler'
+  gem 'guard-livereload'
   gem "guard-rspec"
-  gem 'byebug'
   gem 'pry-rails'
   gem 'pry-rescue'
   gem 'pry-byebug'

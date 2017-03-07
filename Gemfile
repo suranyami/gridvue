@@ -21,6 +21,8 @@ gem 'graphql'
 gem 'faker'
 gem 'factory_girl_rails'
 gem 'haml-rails'
+gem 'active_model_serializers', '~> 0.10.0'
+gem 'awesome_print'
 
 group :test do
   gem 'rspec-rails'

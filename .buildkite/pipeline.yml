@@ -10,3 +10,9 @@ steps:
     env:
       IMAGE_REPOSITORY: 145463046630.dkr.ecr.us-east-1.amazonaws.com/cancelit
       IMAGE_NAME: "build-${BUILDKITE_BUILD_NUMBER}"
+  - label: ':docker: Push (master)'
+    command: ./ci-scripts/ci-docker-push-master.sh
+    branches: master
+    env:
+      IMAGE_REPOSITORY: 145463046630.dkr.ecr.us-east-1.amazonaws.com/cancelit
+      IMAGE_NAME: "build-${BUILDKITE_BUILD_NUMBER}"

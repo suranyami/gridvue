@@ -1,5 +1,5 @@
 FROM ruby:2.3.3
-RUN apt-get update -qq && apt-get install -y build-essential apt-utils
+RUN apt-get update -qq && apt-get install -y build-essential apt-utils postgresql
 
 RUN echo "gem: --no-rdoc --no-ri" >> ~/.gemrc
 

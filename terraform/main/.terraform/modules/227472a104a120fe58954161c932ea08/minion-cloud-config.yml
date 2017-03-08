@@ -1,0 +1,25 @@
+#cloud-config
+bootcmd:
+- /bin/bash -c 'echo ECS_CLUSTER=${ecs_cluster_name} >> /etc/ecs/ecs.config'
+- >-
+  /bin/bash -c '
+    for fs in ${file_systems}; do
+      IFS=":" read device directory <<< "$fs";
+      mkdir -p "$directory";
+      for ((tries=0; tries < 30; tries++)); do /sbin/blkid "$device" && break; sleep 1; done;
+
+      if ! /sbin/blkid -t TYPE=ext4 "$device"; then
+        /sbin/wipefs -fa "$device" && /sbin/mkfs.ext4 -F "$device";
+      fi;
+    done
+  '
+
+runcmd:
+- >-
+  /bin/bash -c '
+    for fs in ${file_systems}; do
+      IFS=":" read device directory <<< "$fs";
+      for ((tries=0; tries < 30; tries++)); do /sbin/blkid "$device" && break; sleep 1; done;
+      mount "$device" "$directory";
+    done
+  '

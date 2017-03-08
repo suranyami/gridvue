@@ -1,3 +1,6 @@
 steps:
   - label: ':docker: :elixir: :ruby: :node: :javascript: Build'
     command: ./ci-scripts/docker-build.sh
+    env:
+      IMAGE_REPOSITORY: 145463046630.dkr.ecr.us-east-1.amazonaws.com/cancelit
+      IMAGE_NAME: "build-${BUILDKITE_BUILD_NUMBER}"

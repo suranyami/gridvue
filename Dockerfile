@@ -11,3 +11,5 @@ EXPOSE 3000
 EXPOSE 8888
 
 RUN bundle
+
+CMD bundle exec rails server

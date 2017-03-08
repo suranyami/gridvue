@@ -1,7 +1,13 @@
 steps:
   - label: ':docker: :ruby: :node: Build'
     command: ./ci-scripts/docker-build.sh
-    command: ./ci-scripts/docker-build.sh
+    env:
+      IMAGE_REPOSITORY: 145463046630.dkr.ecr.us-east-1.amazonaws.com/gridvue
+      IMAGE_NAME: "build-${BUILDKITE_BUILD_NUMBER}"
+
+  - wait
+  - label: ':docker: Push'
+    command: ./ci-scripts/docker-push.sh
     env:
       IMAGE_REPOSITORY: 145463046630.dkr.ecr.us-east-1.amazonaws.com/gridvue
       IMAGE_NAME: "build-${BUILDKITE_BUILD_NUMBER}"

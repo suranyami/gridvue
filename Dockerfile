@@ -1,5 +1,5 @@
-FROM ruby:2.1.8
-RUN apt-get update -qq && apt-get install -y build-essential libmysqlclient-dev apt-utils nodejs npm nodejs-legacy imagemagick
+FROM ruby:2.3.3
+RUN apt-get update -qq && apt-get install -y build-essential apt-utils
 
 RUN echo "gem: --no-rdoc --no-ri" >> ~/.gemrc
 

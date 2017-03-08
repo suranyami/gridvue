@@ -12,9 +12,9 @@ steps:
       IMAGE_REPOSITORY: 145463046630.dkr.ecr.us-east-1.amazonaws.com/gridvue
       IMAGE_NAME: "build-${BUILDKITE_BUILD_NUMBER}"
 
-  - wait
-  - label: ':docker: Push'
+  - label: ':docker: Push to Production (master)'
     command: ./ci-scripts/docker-push-master.sh
+    branches: master
     env:
       IMAGE_REPOSITORY: 145463046630.dkr.ecr.us-east-1.amazonaws.com/gridvue
       IMAGE_NAME: "build-${BUILDKITE_BUILD_NUMBER}"

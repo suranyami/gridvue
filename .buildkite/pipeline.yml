@@ -4,3 +4,9 @@ steps:
     env:
       IMAGE_REPOSITORY: 145463046630.dkr.ecr.us-east-1.amazonaws.com/cancelit
       IMAGE_NAME: "build-${BUILDKITE_BUILD_NUMBER}"
+  - wait
+  - label: ':docker: :elixir: :ruby: :node: :javascript: Push'
+    command: ./ci-scripts/docker-push.sh
+    env:
+      IMAGE_REPOSITORY: 145463046630.dkr.ecr.us-east-1.amazonaws.com/cancelit
+      IMAGE_NAME: "build-${BUILDKITE_BUILD_NUMBER}"

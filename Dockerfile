@@ -12,4 +12,4 @@ EXPOSE 8888
 
 RUN bundle
 
-CMD bundle exec rails server
+CMD bundle exec foreman start

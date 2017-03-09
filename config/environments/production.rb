@@ -84,7 +84,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  after_initialize do
+  config.after_initialize do
     Rails.logger.info(ENV.inspect)
   end
 end

@@ -11,5 +11,6 @@ EXPOSE 3000
 EXPOSE 8888
 
 ENV RAILS_ENV production
+
 RUN bundle
 CMD bundle exec foreman start
